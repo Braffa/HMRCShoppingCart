@@ -22,13 +22,39 @@ public class BillTotalTest {
 	}
 
 	@Test
+	public void test2Apples() {
+		assertEquals(0.60, billTotal.calulateTotaBill(Arrays.asList("apple", "apple")), 0.00);
+	}
+
+	@Test
+	public void test3Apples() {
+		assertEquals(1.20, billTotal.calulateTotaBill(Arrays.asList("apple", "apple", "apple")), 0.00);
+	}
+
+	@Test
 	public void test1Orange() {
 		assertEquals(0.25, billTotal.calulateTotaBill(Arrays.asList("orange")), 0.00);
 	}
 
 	@Test
+	public void test3Oranges() {
+		assertEquals(0.50, billTotal.calulateTotaBill(Arrays.asList("orange", "orange", "orange")), 0.00);
+	}
+
+	@Test
+	public void test4Oranges() {
+		assertEquals(0.75, billTotal.calulateTotaBill(Arrays.asList("orange", "orange", "orange", "orange")), 0.00);
+	}
+
+	@Test
+	public void test5Oranges() {
+		assertEquals(1.00, billTotal.calulateTotaBill(Arrays.asList("orange", "orange", "orange", "orange", "orange")),
+				0.00);
+	}
+
+	@Test
 	public void test3Apples1Orange() {
-		assertEquals(2.05, billTotal.calulateTotaBill(Arrays.asList("apple", "apple", "orange", "apple")), 0.00);
+		assertEquals(1.45, billTotal.calulateTotaBill(Arrays.asList("apple", "apple", "orange", "apple")), 0.00);
 	}
 
 }

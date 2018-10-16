@@ -17,6 +17,20 @@ public class BillTotal {
 				totalOranges++;
 			}
 		}
+		if (totalApples > 0) {
+			if (totalApples % 2 == 0) {
+				totalApples = totalApples / 2;
+			} else {
+				totalApples = (totalApples / 2) + 1;
+			}
+		}
+		if (totalOranges > 0) {
+			if (totalOranges % 3 == 0) {
+				totalOranges = (totalOranges / 3) + 1;
+			} else {
+				totalOranges = ((totalOranges / 3) * 2) + (totalOranges % 3);
+			}
+		}
 		return (totalApples * applePrice) + (totalOranges * orangePrice);
 	}
 
