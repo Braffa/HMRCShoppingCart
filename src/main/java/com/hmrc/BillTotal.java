@@ -6,29 +6,16 @@ public class BillTotal {
 
 	private static double applePrice = 0.60;
 	private static double orangePrice = 0.25;
-	
+
 	Fruit apples = (int totalApples) -> {
-		if (totalApples > 0) {
-			if (totalApples % 2 == 0) {
-				totalApples = totalApples / 2;
-			} else {
-				totalApples = (totalApples / 2) + 1;
-			}
-		}
-		return totalApples;
+		return totalApples == 0 ? 0 : totalApples % 2 == 0 ? totalApples / 2 : (totalApples / 2) + 1;
 	};
-	
+
 	Fruit oranges = (int totalOranges) -> {
-		if (totalOranges > 0) {
-			if (totalOranges % 3 == 0) {
-				totalOranges = (totalOranges / 3) + 1;
-			} else {
-				totalOranges = ((totalOranges / 3) * 2) + (totalOranges % 3);
-			}
-		}
-		return totalOranges;
+		return totalOranges == 0 ? 0
+				: (totalOranges % 3 == 0 ? (totalOranges / 3) + 1 : (totalOranges / 3) * 2) + (totalOranges % 3);
+
 	};
-	
 
 	public double calulateTotaBill(List<String> listOfFruit) {
 		int totalApples = 0;
@@ -40,7 +27,8 @@ public class BillTotal {
 				totalOranges++;
 			}
 		}
-		return (apples.calculateDiscount(totalApples) * applePrice) + (oranges.calculateDiscount(totalOranges) * orangePrice);
+		return (apples.calculateDiscount(totalApples) * applePrice)
+				+ (oranges.calculateDiscount(totalOranges) * orangePrice);
 	}
 
 }
